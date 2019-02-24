@@ -1,5 +1,4 @@
 import requests
-from bs4 import BeautifulSoup
 
 from conf import config
 from lib.analysis_html import Analysis
@@ -54,11 +53,7 @@ if __name__ == '__main__':
     # fdl.download()
 
     url_path = 'https://mirrors.aliyun.com/centos/dostools/'
-    # r = requests.get(url_path)
-    # data = r.content.decode('utf8')
-    # soup = BeautifulSoup(data, "html.parser")
-    # res = [link.get('href') for link in soup.find_all('a') if link.get('href') not in ['../', './']]
-    # print(res)
+
 
     pdl = PathDownloader(url_path, storge_path)
     pdl.download()
