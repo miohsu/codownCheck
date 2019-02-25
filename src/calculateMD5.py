@@ -19,9 +19,9 @@ for file in files:
             if not data:
                 break
             m.update(data)
-    results[file] = m.hexdigest()
+    results[m.hexdigest()] = file
 print(results)
 
-results_set = set([i for i in results.items()])
+results_set = set([key for key in results.keys()])
 
 print(results_set)
