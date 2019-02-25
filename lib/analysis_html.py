@@ -7,4 +7,6 @@ class Analysis(object):
 
     def get_a_href(self):
         soup = BeautifulSoup(self.html, 'html.parser')
-        return [link.get('href') for link in soup.find_all('a') if link.get('href') not in ['../', './']]
+        result = [link.get('href') for link in soup.find_all('a') if not link.get('href').endswith('/')]
+        result = [i for i in result if not i.startswith('?')]
+        return result
