@@ -5,9 +5,11 @@ BASEDIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SVN_ADDRESS = 'https://corp.youdao.com/svn/soft/codown/xue/course-app/apk'
 SVN_ADDRESS = 'http://192.168.1.72/repo'
 
-CODOWN_ADDRESS = 'http://codown.youdao.com/xue/course-app/apk'
+# CODOWN_ADDRESS = 'http://codown.youdao.com/xue/course-app/apk'
+CODOWN_ADDRESS = 'http://192.168.1.72/repo'
 
 SVN_PATH = os.path.join(BASEDIR, 'files', 'svn')
+CODOWN_PATH = os.path.join(BASEDIR, 'files', 'codown')
 
 VERSION = '3.2.0'
 

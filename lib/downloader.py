@@ -13,10 +13,15 @@ class Downloader(object):
         # download the file
         pass
 
+    def create_path(self):
+        if not os.path.exists(self.storge_path):
+            os.makedirs(self.storge_path)
+
 
 class FileDownloader(Downloader):
     def download(self):
         # download the file
+        self.create_path()
         response = requests.get(self.url, stream=True)
         storge_file = os.path.join(self.storge_path, self.url.split('/')[-1])
         with open(storge_file, 'wb') as fp:
@@ -39,14 +44,7 @@ class PathDownloader(Downloader):
         filenames = analysis.get_a_href()
         print("{} contain {}".format(self.url, filenames))
 
-        try:
-            if not os.path.exists(self.storge_path):
-                os.mkdir(self.storge_path)
-            elif not os.path.isdir(self.storge_path):
-                raise NameError("Error: '{}' is exists, but is not a dir.".format(self.storge_path))
-        except NameError as e:
-            print(e)
-            return
+        self.create_path()
 
         for file in filenames:
             url_file = '/'.join([self.url.rstrip('/'), file])
