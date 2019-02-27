@@ -19,7 +19,6 @@ def clear(path):
     os.makedirs(path)
 
 
-
 def main():
     clear(SVN_PATH)
     clear(CODOWN_PATH)
@@ -30,6 +29,7 @@ def main():
     down(base_url=CODOWN_ADDRESS, suffix_urls=DOWNLOAD_PATH, storge_path=CODOWN_PATH, type='path_down')
 
     calculateMD5.calculate(SVN_PATH, CODOWN_PATH)
+
 
 if __name__ == '__main__':
     main()
